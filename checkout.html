@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Cosmetic Glow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">COSMETIC <span>GLOW</span></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="section-title">ชำระเงิน</h1>
+
+        <div class="checkout-container">
+          
+            <div>
+                <h3 style="margin-bottom: 20px;">ที่อยู่จัดส่ง</h3>
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <label>ชื่อ-นามสกุล</label>
+                        <input type="text" class="form-control" required placeholder="สมชาย ใจดี">
+                    </div>
+
+                    <div class="form-group">
+                        <label>เบอร์โทรศัพท์</label>
+                        <input type="tel" class="form-control" required placeholder="08x-xxx-xxxx">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ที่อยู่</label>
+                        <textarea class="form-control" rows="3" required
+                            placeholder="บ้านเลขที่, ถนน, แขวง/ตำบล"></textarea>
+                    </div>
+
+                    <div style="display: flex; gap: 20px;">
+                        <div class="form-group" style="flex:1;">
+                            <label>จังหวัด</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group" style="flex:1;">
+                            <label>รหัสไปรษณีย์</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <h3 style="margin: 30px 0 20px;">วิธีการชำระเงิน</h3>
+                    <div class="form-group">
+                        <div style="border: 1px solid #ddd; padding: 15px; border-radius: 4px; margin-bottom: 10px;">
+                            <input type="radio" name="payment" id="p1" checked>
+                            <label for="p1" style="display:inline;">โอนเงินผ่านธนาคาร</label>
+                        </div>
+                        <div style="border: 1px solid #ddd; padding: 15px; border-radius: 4px;">
+                            <input type="radio" name="payment" id="p2">
+                            <label for="p2" style="display:inline;">เก็บเงินปลายทาง</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; margin-top: 20px;">ยืนยันคำสั่งซื้อ</button>
+                </form>
+            </div>
+
+            <div>
+                <div class="order-summary-box">
+                    <h3 style="margin-bottom: 20px;">สรุปคำสั่งซื้อ</h3>
+                    <div id="order-items">
+                      
+                    </div>
+                    <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
+                    <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.2rem;">
+                        <span>ยอดรวมสุทธิ</span>
+                        <span id="order-total" style="color: var(--primary-color);">฿0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

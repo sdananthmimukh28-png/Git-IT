@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotions | Cosmetic Glow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .promo-banner {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .promo-banner::after {
+            content: "";
+            position: absolute;
+            background: rgba(0, 0, 0, 0.3);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .promo-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .coupon-card {
+            border: 2px dashed var(--primary-color);
+            background: #fff5f5;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .coupon-code {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: #fff;
+            padding: 10px 30px;
+            display: inline-block;
+            margin: 20px 0;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">COSMETIC <span>GLOW</span></a>
+            <nav class="nav-links">
+                <a href="index.html">หน้าแรก</a>
+                <a href="shop.html">สินค้าทั้งหมด</a>
+                <a href="promo.html" class="active">โปรโมชั่น</a>
+                <a href="#">บทความ</a>
+                <a href="contact.html">ติดต่อเรา</a>
+            </nav>
+            <div class="nav-icons">
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="promo-banner" style="background-image: url('images/promo_banner.png');">
+        <div class="promo-content">
+            <h1 style="font-size: 4rem; margin-bottom: 10px;">MID YEAR SALE</h1>
+            <p style="font-size: 1.5rem;">ลดสูงสุด 50% เฉพาะเดือนนี้เท่านั้น</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+
+        <div class="coupon-card">
+            <h2>โค้ดส่วนลดพิเศษ</h2>
+            <p>กรอกโค้ดด้านล่างในหน้าชำระเงินเพื่อรับส่วนลดเพิ่ม 15%</p>
+            <div class="coupon-code">GLOW15</div>
+            <p style="font-size: 0.9rem; color: #666;">*เมื่อซื้อครบ 1,500 บาทขึ้นไป</p>
+        </div>
+
+        <h2 class="section-title">สินค้าลดราคา</h2>
+        <div id="promo-grid" class="grid-products">
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cosmetic Glow. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const container = document.getElementById('promo-grid');
+            const saleProducts = products.filter((_, index) => index % 2 === 0);
+
+            if (container) {
+                container.innerHTML = saleProducts.map(product => `
+                    <div class="product-card">
+                        <span class="sale-badge">SALE -20%</span>
+                        <a href="product.html?id=${product.id}">
+                            <img src="${product.image}" alt="${product.name}" class="product-image">
+                        </a>
+                        <div class="product-info">
+                            <h3>${product.name}</h3>
+                            <div style="margin-bottom:15px;">
+                                <span style="text-decoration: line-through; color: #999; margin-right: 10px;">฿${(product.price * 1.2).toFixed(0)}</span>
+                                <span class="product-price" style="display:inline;">฿${product.price.toLocaleString()}</span>
+                            </div>
+                            <button class="btn-add-to-cart" onclick="addToCart(${product.id})">หยิบใส่ตะกร้า</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+
+</html>
